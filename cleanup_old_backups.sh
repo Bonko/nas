@@ -22,5 +22,5 @@ for dir in $BACKUPTYPES; do
         continue
     fi
 
-    find "$dir" -maxdepth 1 -mindepth 1 -type d -mtime $KEEP_DAYS -exec logger -t $LOGTAG "removing {}" \; -exec rm -rf {} \;
+    find "$dir" -maxdepth 1 -mindepth 1 -type d -mtime +$KEEP_DAYS -exec logger -t $LOGTAG "removing {}" \; -exec rm -rf {} \;
 done
